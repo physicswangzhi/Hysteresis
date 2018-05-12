@@ -1,0 +1,523 @@
+%% LyX 2.2.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[10pt,aps,prb,superscriptaddress]{revtex4}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\usepackage{color}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{esint}
+\usepackage[unicode=true,
+ bookmarks=false,
+ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=true]
+ {hyperref}
+\usepackage{breakurl}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\@ifundefined{textcolor}{}
+{%
+ \definecolor{BLACK}{gray}{0}
+ \definecolor{WHITE}{gray}{1}
+ \definecolor{RED}{rgb}{1,0,0}
+ \definecolor{GREEN}{rgb}{0,1,0}
+ \definecolor{BLUE}{rgb}{0,0,1}
+ \definecolor{CYAN}{cmyk}{1,0,0,0}
+ \definecolor{MAGENTA}{cmyk}{0,1,0,0}
+ \definecolor{YELLOW}{cmyk}{0,0,1,0}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+\usepackage{subfigure}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{bbm}
+\usepackage{subfigure}
+\usepackage{xcolor}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+\newcommand{\orange}[1]{\textcolor{orange}{#1}}
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\theequation}{S\arabic{equation}}
+
+\makeatother
+
+\begin{document}
+
+\title{Supplementary materials for \char`\"{}Landau-Zener Effect Induced
+Hysteresis in Topological Josephson Junctions\char`\"{}}
+
+\author{Jia-Jin Feng}
+
+\affiliation{School of Physics, Sun Yat-sen University, Guangzhou 510275, China}
+
+\author{Zhao Huang}
+
+\affiliation{Texas Center for Superconductivity, University of Houston, Houston,
+Texas 77204, USA}
+
+\author{Zhi Wang}
+
+\affiliation{School of Physics, Sun Yat-sen University, Guangzhou 510275, China}
+
+\affiliation{Department of Physics, The University of Texas, Austin, Texas 78712,
+USA}
+
+\author{Qian Niu}
+
+\affiliation{Department of Physics, The University of Texas at Austin, Austin,
+Texas 78712, USA}
+\date{\today}
+\maketitle
+%74.50.+r (Tunneling phenomena; Josephson effects),
+%03.65.-w (Quantum mechainics),
+%03.67.-a (Quantum information),
+%74.90.+n (Other topics in superconductivity),
+%74.81.Fa (Josephson junction arrays and wire networks),
+%76.63.Nm (Quantum wires),
+%74.20.Mn (Nonconventional mechanisms),
+%85.25.Cp (Josephson devices), 85.25.Dq (SQUIDs)}
+
+\section{Josephson Hamiltonian and Josephson current}
+
+Here we show that the Josephson Hamiltonian for the two-level system
+in the main text can be derived from a topological nanowire junction.
+For a minimal model, the nanowire with a tunneling barrier can be
+treated as two separate segments of nanowire which are coupled through
+electron tunneling. The two segments can be described by the spin-less
+superconducting Hamiltonian first proposed by Kitaev\cite{kitaevaip},
+\begin{eqnarray}
+\mathcal{H}_{\alpha}=\sum_{j=1}^{N_{\alpha}}\left[-t_{\alpha}c_{\alpha,j}^{\dagger}c_{\alpha,j+1}+\Delta_{\alpha}e^{i\phi_{\alpha}}c_{\alpha,j}c_{\alpha,j+1}+h.c.\right]-\mu_{\alpha}\sum_{j=1}^{N_{\alpha}}c_{\alpha,j}^{\dagger}c_{\alpha,j},
+\end{eqnarray}
+where $\alpha={\rm L,R}$ represents the left and the right segment
+of the wire, $c_{\alpha,j}$ is the electron annihilation operator
+on the site $j$, $\Delta_{\alpha}$ is the superconductor gap, $\phi_{\alpha}$
+is the superconducting phase, $t_{\alpha}$ is the nearest neighbor
+hopping, and $\mu_{\alpha}$ is the chemical potential. Here for simplicity
+we take identical parameters for the left and right segments, except
+for the superconducting phase $\phi_{\alpha}$ which must be different
+in the presence of a Josephson current. According to the Kitaev approach,
+the electron operators can be transformed into Majorana operators
+by direct transformations $\gamma_{\alpha,j,{\rm A}}=e^{i{\phi_{\alpha}}/{2}}c_{\alpha,j}+e^{-i{\phi_{\alpha}}/{2}}c_{\alpha,j}^{\dagger}$
+and $\gamma_{\alpha,j,{\rm B}}=-ie^{i{\phi_{\alpha}}/{2}}c_{\alpha,j}+ie^{-i{\phi_{\alpha}}/{2}}c_{\alpha,j}^{\dagger}$.
+We note that these Majorana operators are not MZMs since they are
+subjected to local coupling which gives a finite bonding energy. Then
+the Kitaev Model can be rewritten in this Majorana representation,
+\begin{eqnarray}
+\mathcal{H}_{\alpha}=\frac{-{\mu}_{\alpha}}{2}\sum_{j=1}^{N}i\gamma_{\alpha,j,{\rm A}}\gamma_{\alpha,j,{\rm B}}+\frac{(t+\Delta)}{2}\sum_{j=1}^{N-1}i\gamma_{\alpha,j,{\rm B}}\gamma_{\alpha,j+1,{\rm A}}-\frac{(t-\Delta)}{2}\sum_{j=1}^{N-1}i\gamma_{\alpha,j,{\rm A}}\gamma_{\alpha,j+1,{\rm B}}.
+\end{eqnarray}
+It is well known that this Kitaev model enters the topological non-trivial
+phase for the parameter regime of $|t|>|\mu|$ and $\Delta\neq0$,
+while the Majorana Zero modes (MZMs) $\gamma_{{\rm L}}$, $\gamma'_{{\rm L}}$,
+$\gamma_{{\rm R}}$, and $\gamma'_{{\rm R}}$ appears at the ends
+of the two segments\cite{kitaevaip,beenakkerarcp}. Then the low energy
+(below superconducting energy gap $\Delta$) physics of the two segments
+is described by an effective Hamiltonian,
+\begin{eqnarray}
+\mathcal{H}_{{\rm \delta}}=\sum_{\alpha}i\delta_{\alpha}\gamma'_{\alpha}\gamma_{\alpha},\label{eq:delta}
+\end{eqnarray}
+where $\delta_{\alpha}$ represent the coupling energy within the
+left/right segment, which is exponentially protected by the length
+of the wire\cite{marcus16}.
+
+The two segments are coupled by the electron tunneling through the
+barrier, which could be described by a standard tunneling Hamiltonian
+\begin{eqnarray}
+\mathcal{H}_{{\rm T}}=Tc_{{\rm L,N}}^{\dagger}c_{{\rm R,1}}+T^{*}c_{{\rm R,1}}^{\dagger}c_{{\rm L,N}}.
+\end{eqnarray}
+where $T$ is the tunneling matrix. For low energy physics, the effective
+Hamiltonian should only involve the four MZMs. Therefore the tunneling
+Hamiltonian should be projected to these four MZMs with a form of\cite{kitaevaip},
+\begin{eqnarray}
+\mathcal{H}_{{\rm M}} &  & =-iE_{{\rm M}}\gamma_{{\rm L}}\gamma_{{\rm R}}\cos({\theta}/{2}),\label{eq:tunneling}
+\end{eqnarray}
+with $E_{{\rm M}}\approx T/4$ the Josephson energy and $\theta=\phi_{{\rm R}}-\phi_{{\rm L}}$
+the superconducting phase difference. The Hamiltonians in Eqs. (\ref{eq:delta})
+and (\ref{eq:tunneling}) give the low energy effective Hamiltonian
+of the MZMs in the Josephson junction, which provides a typical two-level
+system. Let us look at it in more detail by defining the fermionic
+operators $f_{1}=(\gamma_{{\rm L}}+i\gamma_{{\rm R}})/2$ and $f_{2}=(\gamma'_{{\rm R}}+i\gamma'_{{\rm L}})/2$
+with the four MZMs. Then the low energy Hamiltonian can be transformed
+back to the fermionic representation as,
+\begin{eqnarray}
+\mathcal{H} &  & =\mathcal{H}_{{\rm M}}+\mathcal{H}_{\delta}\nonumber \\
+ &  & =-E_{{\rm M}}\cos(\theta/2)(f_{1}^{\dagger}f_{1}-f_{1}f_{1}^{\dagger})+\delta_{{\rm L}}(f_{2}-f_{2}^{\dagger})(f_{1}+f_{1}^{\dagger})+\delta_{{\rm R}}(f_{2}+f_{2}^{\dagger})(f_{1}-f_{1}^{\dagger}).
+\end{eqnarray}
+There are natural basis states for this Hamiltonian: $|00\rangle$,
+$f_{1}^{\dagger}f_{2}^{\dagger}|00\rangle$, $f_{2}^{\dagger}|00\rangle$,
+and $f_{1}^{\dagger}|00\rangle$, with $|00\rangle$ the vacuum state
+for $f_{1}^{\dagger}$ and $f_{2}^{\dagger}$. With these basis states,
+the total Hamiltonian can be rewritten in the matrix form as,
+\begin{eqnarray}
+\mathcal{H}=\left(\begin{matrix}E_{{\rm M}}\cos(\theta/2) & \delta_{{\rm L}}+\delta_{{\rm R}} & 0 & 0\\
+\delta_{{\rm L}}+\delta_{{\rm R}} & -E_{{\rm M}}\cos(\theta/2) & 0 & 0\\
+0 & 0 & E_{{\rm M}}\cos(\theta/2) & -\delta_{{\rm L}}+\delta_{{\rm R}}\\
+0 & 0 & -\delta_{{\rm L}}+\delta_{{\rm R}} & -E_{{\rm M}}\cos(\theta/2)
+\end{matrix}\right).
+\end{eqnarray}
+This is a block diagonal matrix, with the left up and right down blocks
+corresponding to the even and odd total parities, respectively. Without
+losing generality, we take the even total parity and arrive at the
+matrix shown in Eq. (3) of the main text.
+
+Now let us consider the Josephson current through the topological
+junction. The electron number operator on the right-hand side of the
+junction is $N_{{\rm R}}=\sum_{j}c_{{\rm R},j}^{\dagger}c_{{\rm R},j}$,
+and its time derivative gives the tunneling current,
+\begin{eqnarray}
+I_{{\rm M}}(t)=-e\langle\frac{{\rm d}N_{{\rm R}}}{{\rm d}t}\rangle=-e\langle\psi(t)|\frac{i}{\hbar}[H,N_{{\rm R}}]|\psi(t)\rangle=\frac{ie}{\hbar}\langle\psi(t)|-Tc_{{\rm L,N}}^{\dagger}c_{{\rm R,1}}+T^{*}c_{{\rm R,1}}^{\dagger}c_{{\rm L,N}})|\psi(t)\rangle,\label{current}
+\end{eqnarray}
+where $|\psi(t)\rangle$ is the ground state wave function after including
+the tunneling Hamiltonian. There are two contributions to the Josephson
+current from this formula. One is the standard Josephson current from
+the Cooper pair tunneling, which can be obtained by expanding the
+ground state wave function with the s-matrix and then take the second
+order perturbation. For a weak tunneling limit, this will give a sine
+function Josephson relation,
+\begin{eqnarray}
+I=I_{{\rm c1}}\sin\theta,
+\end{eqnarray}
+with $I_{c1}$ the maximum value. The other contribution is the single
+electron tunneling through the MZMs, which could be obtained by the
+zero order degenerate perturbation,
+\begin{eqnarray}
+I=I_{{\rm c2}}\sin({\theta}/{2})\langle\psi(t)|i\gamma_{{\rm L}}\gamma_{{\rm R}}|\psi(t)\rangle,
+\end{eqnarray}
+with the maximum value $I_{{\rm c2}}\approx{eE_{{\rm M}}}/{\hbar}$.
+The Josephson currents from the Cooper pair tunneling and the single
+electron tunneling through MZM will add together and contribute a
+total Josephson current.
+
+
+
+
+\section{Casting two-level system to Classical Hamiltonian}
+
+Now we demonstrate how to cast the Schrödinger equation for the two-level
+system into a classical Hamiltonian, and form a classical dynamical
+system by combining with the RSJ equation. The wave function of the
+two-level system is $(\psi_{0},\psi_{1})\equiv(|\psi_{0}|e^{i\phi_{0}},|\psi_{1}|e^{i\phi_{1}})$
+which contains two complex numbers. As a quantum wave function, it
+obeys two constraints according to the basic postulate of quantum
+mechanics. First, The wave function must be normalized $|\psi_{0}|^{2}+|\psi_{1}|^{2}=1$.
+Second, the total phase for the wave function has no physical relevance.
+With these two constraints, the wave function can actually be described
+by two real numbers. Instead of randomly picking, we choose them to
+be the relative amplitude $s\equiv|\psi_{1}|^{2}-|\psi_{0}|^{2}$
+and the relative phase $\phi=\phi_{1}-\phi_{0}$. We hope to derive
+the equation for these two real numbers out of the Schrödinger equation.
+For this purpose, we explicit write down the amplitude and phase for
+the wave function $\psi_{0,1}=|\psi_{0,1}|e^{i\phi_{0,1}}$. The amplitude
+of the wave function is determined by $s$ with $|\psi_{0}|=\sqrt{(1-s)/2}$
+and $|\psi_{1}|=\sqrt{(1+s)/2}$, while the phase of the wave function
+is determined by the relative phase $\psi$ and the total phase $\phi_{{\rm T}}=\phi_{1}+\phi_{0}$
+with $\phi_{0}=(\phi_{{\rm T}}-\phi)/2$ and $\phi_{1}=(\phi_{T}+\phi)/2$.
+Then we can massage the Schrödinger equation into the form,
+\begin{eqnarray}
+i\hbar\frac{d}{dt}\left(\begin{array}{cc}
+\sqrt{\frac{1-s}{2}}e^{-i\phi/2}\\
+\sqrt{\frac{1+s}{2}}e^{i\phi/2}
+\end{array}\right)e^{i\phi_{{\rm T}}/2}=\frac{1}{2}\left(\begin{array}{cc}
+{E_{{\rm M}}}\cos{\frac{\theta}{2}} & {\delta}\\
+{\delta} & -{E_{{\rm M}}}\cos{\frac{\theta}{2}}
+\end{array}\right)\left(\begin{array}{cc}
+\sqrt{\frac{1-s}{2}}e^{-i\phi/2}\\
+\sqrt{\frac{1+s}{2}}e^{i\phi/2}
+\end{array}\right)e^{i\phi_{{\rm T}}/2},\nonumber \\
+\end{eqnarray}
+where we rescale the entire Hamiltonian to simplify the formula. We
+now have two set of equations for the variable $s$, $\phi$, and
+$\phi_{T}$. The first equation gives,
+\begin{eqnarray}
+i\hbar(-\sqrt{\frac{8}{1-s}}\dot{s}-\frac{i}{2}\sqrt{\frac{1-s}{2}}\dot{\phi}+\frac{i}{2}\sqrt{\frac{1-s}{2}}\dot{\phi}_{T})=\frac{E_{{\rm M}}}{2}\cos{\frac{\theta}{2}}\sqrt{\frac{1-s}{2}}+\frac{\delta}{2}\sqrt{\frac{1+s}{2}}e^{i\phi}.
+\end{eqnarray}
+The imaginary part of the equation gives,
+\begin{eqnarray}
+\dot{s}=-\frac{\delta}{\hbar}\sqrt{1-s^{2}}\sin{\phi},\label{eq:7b}
+\end{eqnarray}
+which gives the Eq. (7b) in the main text, while the real part of
+the equation gives,
+\begin{eqnarray}
+\dot{\phi}-\dot{\phi}_{{\rm T}}=E_{{\rm M}}\cos\theta/2+\frac{\sqrt{1+s}}{\sqrt{1-s}}\delta\cos\phi.\label{eq:7c1}
+\end{eqnarray}
+Checking the second equation we would have,
+\begin{eqnarray}
+\dot{\phi}+\dot{\phi}_{{\rm T}}=E_{{\rm M}}\cos\theta/2-\frac{\sqrt{1-s}}{\sqrt{1+s}}\delta\cos\phi.\label{eq:7c2}
+\end{eqnarray}
+Combining the Eqs. (\ref{eq:7c1}) and (\ref{eq:7c2}), we obtain
+the Eq. 7c in the main text,
+\begin{eqnarray}
+\dot{\phi}=E_{{\rm M}}\cos\theta/2+\frac{s}{\sqrt{1-s^{2}}}\delta\cos\phi.\label{eq:7c}
+\end{eqnarray}
+Combing with the RSJ equation, we arrive at the Eq. (7) in the Main
+text. We note that the Eqs. (\ref{eq:7b}) and (\ref{eq:7c}) are
+Hamilton equations which could be derived from a classical Hamilton
+of the form,
+\begin{eqnarray}
+H=-sE_{{\rm M}}\cos\frac{\theta}{2}+\delta\sqrt{1-s^{2}}\cos\phi,
+\end{eqnarray}
+with $s$ and $\phi$ the canonical variables. It is natural to consider
+adding the RSJ equation into this classical Hamilton. We realize that
+the Eq. (7) can indeed be derived from a generalized potential in
+the form of,
+\begin{equation}
+U(s,\phi,\theta)=-sE_{{\rm M}}\cos\frac{\theta}{2}+\delta\sqrt{1-s^{2}}\cos\phi-E_{{\rm J}}\cos\theta-\frac{\hbar}{2e}I\theta.
+\end{equation}
+The differential equations for the $s$ and $\phi$ still looks like
+canonical equations with
+\begin{equation}
+\frac{ds}{dt}=\frac{1}{\hbar}\frac{\partial U}{\partial\phi},\quad\frac{d\phi}{dt}=-\frac{1}{\hbar}\frac{\partial U}{\partial s},
+\end{equation}
+while the differential equation for the phase difference is given
+by the its own derivative,
+\begin{equation}
+\frac{d\theta}{dt}=-R\frac{\partial U}{\partial\theta}.
+\end{equation}
+From this generalized potential, we would visualize that the system
+is circulating in the $s-\phi$ plane while experiencing a friction
+in the $\theta$ direction.
+
+
+\blue{
+\section{Using Krylov-Bogoliubov averaging method}
+The advantage of casting the entire quantum-classical coupled system into a pure classical system is to apply more sophisticated mathematical approaches which have been developed in studying non-linear classical dynamics. In this section we present one such method and show how how to understand the Landau-Zener-St\"{u}ckelberg interference and its damping in current system. We focus on the dynamics of $s$, the wave function amplitude of the two-level system. From numerical simulations, we know that $s$ has an Landau-Zener-St\"{u}ckelberg oscillation with an frequency around $\delta$. The oscillation is damped and the amplitude of the oscillation gradually decreases to near zero. Since the LZS oscillation and its damping is crucial for the hysteresis in the I-V curve, here we present an analytical approach to qualitatively understand the dynamics of $s$. The first step towards the investigation of $s$ dynamics is to decouple it with the $\phi$, which can be achieved by transforming the two first order differential equations (6b) and (6c) in the main text into one first order differential equation, 
+\begin{eqnarray}
+\frac{ds^{2}}{dt^{2}}+(\frac{\delta}{\hbar})^{2}s=-\frac{\delta E_{{\rm M}}}{\hbar^{2}}\cos\frac{\theta (s,t)}{2}\sqrt{1-s^{2}-(\frac{\hbar}{\delta}\frac{ds}{dt})^{2}}
+\end{eqnarray}
+where $\theta(s,t)$ is to be obtained by solving the Eq. (6a) in the main text. This second order differential equation for falls into the typical class of equations which has an exact formal solution of $s = A(t) \cos (\frac{\delta}{\hbar} t +B(t))$ with $A(t)$ and $B(t)$ satisfy certain equations. To see this clearly, let us proceed by simplifying the equations through redefining the time as $\tau=\frac{\delta}{\hbar}t$, where the equations becomes,
+\begin{eqnarray}\label{eq:sdynam}
+\frac{ds^{2}}{d\tau^{2}}+s=-\frac{E_{{\rm M}}}{\delta}\cos\frac{\theta}{2}\sqrt{1-s^{2}-(\frac{ds}{d\tau})^{2}}.
+\end{eqnarray}
+The next step is to ignore the right hand of the equation, and solve the remains simple Harmonic equations,
+\begin{eqnarray}
+\frac{ds^{2}}{d\tau^{2}} +s=0,
+\end{eqnarray}
+which has obvious solutions of 
+\begin{eqnarray}
+s & =&A\cos(\tau+B) \nonumber\\
+\frac{ds}{dt} & =&-A\sin(\tau+B),
+\end{eqnarray}
+where $A$ and $B$ are the two integration constant for a second order differential equation, which are determined by the initial condition. Now we make an ansatz solution for the original equation (\ref{eq:sdynam}), which has the same form as for Eq. (S24) except that $A$ and $B$ become time dependent,
+\begin{eqnarray}
+s & =&A (\tau)\cos(\tau+B(\tau)) \\
+\frac{ds}{dt} & =&-A(\tau) \sin(\tau+B(\tau)).
+\end{eqnarray}
+Making time derivative of Eq. (S25) and compare with the Eq. (S26), we have a constraint equation 
+\begin{eqnarray}
+\frac{dA}{d\tau}\cos(\tau+B)=A\sin(\tau+B)\frac{dB}{d\tau}.
+\end{eqnarray}
+We then plug the ansatz solution Eqs. (S25) and (S26) back into the equation (S22) and obtain,
+\begin{eqnarray}
+\frac{dA}{d\tau}\sin(\tau+B)+A\cos(\tau+B)\frac{dB}{d\tau} & =&\frac{E_{{\rm M}}}{\delta}\cos\frac{\theta}{2}\sqrt{1-A^{2}\cos^{2}(\tau+B)-A^{2}\sin^{2}(\tau+B)}\nonumber\\
+ & =&\frac{E_{{\rm M}}}{\delta}\cos\frac{\theta}{2}\sqrt{1-A^{2}}.
+\end{eqnarray}
+Combining Eqs. (S27) and (S28), we find that the ansatz solution works as long as $A$ and $B$ satisfy the equations,
+\begin{eqnarray}
+\frac{d}{d\tau}
+\left(\begin{array}{cc}
+A\\
+B
+\end{array}\right)
+ = \frac{E_{{\rm M}}}{\delta}\cos\frac{\theta}{2}\sqrt{1-A^{2}}
+\left(\begin{array}{cc}
+ \sin(\tau+B)\\
+\frac{1}{A} \cos(\tau+B)
+\end{array}\right)
+\end{eqnarray}
+These equations are still very complicate to solve. Here is the point when Krylov and Bogoliubov realized that the right side of the equations can be replaced by its time averaging as long as we only care the slow dynamics of $A$ and $B$. With this Krylov-Bogoliubov averaging method, we arrive at an simple equation for the slow varying component of $A$ as,
+\begin{eqnarray}
+\frac{d A_0}{d\tau} \approx - \alpha\frac{E_{{\rm M}}}{\delta}\sqrt{1-A_0^{2}},
+\end{eqnarray}
+with $\alpha=\frac{1}{T}\int_{0}^{T}\cos\frac{\theta}{2}\sin(\frac{\delta}{\hbar}t+B_0)dt$ and $\theta = \theta (A_0 \cos(\tau+B_0,t)$. In our numerical simulation, \blue{we have an $\alpha = 0.001$}. 
+With this Krylov-Bogoliubov averaging method, we arrive at an approximate time evolution of $s$ as,
+\begin{eqnarray}
+s & =&A_0 (t)\cos(\frac{\delta}{\hbar} t +B_0),
+\end{eqnarray}
+with $A_0$ following the Eq. (S30). We see that this analytical solution qualitatively agrees with our numerical results. It oscillates with a time scale of $\tau_s$ while the oscillation amplitude decreases with a time scale of $\tau_\alpha \gg \tau_s$.
+}
+
+
+
+\begin{figure}[htb]
+\centering{}\includegraphics[clip,width=0.3\columnwidth]{parityflip.pdf}
+\caption{Numerical simulation of the I-V curves with \blue{$T/E_{{\rm M}}=0.02$}.
+Other parameters are taken the same as in Fig. 2c of the main text.}
+\label{fig:parityflip}
+\end{figure}
+
+\section{Hysteresis with external parity flipping}
+
+Here we show that the hysteresis in the I-V curve still exits even
+if the total parity of MZMs is broken by external quantum levels from
+a single quasiparticle or impurity. For a model study, we consider
+the simplest case of an extra quantum level with energy nearby the
+chemical potential with a Hamiltonian of
+\begin{eqnarray}
+\mathcal{H}_{i}=\epsilon d^{\dag}d,
+\end{eqnarray}
+where $\epsilon$ is the energy of the level which is set to zero
+for simplicity, and $d^{\dag}$ is the creation operator on the level.
+This level couples with one MZM through a simplistic electron tunneling
+Hamiltonian,
+\begin{eqnarray}
+\mathcal{H}_{{\rm T}} & = & T_{{\rm d}}\gamma_{{\rm L}}d+T_{{\rm d}}^{*}d^{\dag}\gamma_{{\rm L}}\nonumber \\
+ & = & (f_{1}^{\dagger}+f)(T_{{\rm d}}d-T_{{\rm d}}^{*}d^{\dag}),
+\end{eqnarray}
+where $T$ is the tunneling matrix. After including this quantum level,
+the Hilbert space is expanded and the total Hamiltonian is actually
+now an eight by eight matrix. It is also block diagonal with two four
+by four blocks due to the conservation of the total parity. We can
+take one block by picking the basis states as, $d^{\dag}|00\rangle$,
+$d^{\dag}f_{1}^{\dagger}f_{2}^{\dagger}|00\rangle$, $f_{2}^{\dagger}|00\rangle$,
+$f_{1}^{\dagger}|00\rangle$. Then we arrive at an effective Hamiltonian
+\begin{eqnarray}
+\mathcal{H}=\left(\begin{matrix}E_{{\rm M}}\cos(\theta/2) & \delta_{{\rm L}}+\delta_{{\rm R}} & 0 & \blue{T^{*}}\\
+\delta_{{\rm L}}+\delta_{{\rm R}} & -E_{{\rm M}}\cos(\theta/2) & \blue{T^{*}} & 0\\
+0 & \blue{T} & E_{{\rm M}}\cos(\theta/2) & -\delta_{{\rm L}}+\delta_{{\rm R}}\\
+\blue{T} & 0 & -\delta_{{\rm L}}+\delta_{{\rm R}} & -E_{{\rm M}}\cos(\theta/2)
+\end{matrix}\right).\label{eq:4x4}
+\end{eqnarray}
+Now all the four states are necessary, and the quantum average for
+the supercurrent through the Majorana channel is,
+\begin{eqnarray}
+\langle\psi|i\gamma_{2}\gamma_{3}|\psi\rangle=|\psi_{3}(t)|^{2}-|\psi_{2}(t)|^{2}+|\psi_{1}(t)|^{2}-|\psi_{0}(t)|^{2}.\label{eq:4x4current}
+\end{eqnarray}
+We plug the Eqs. (\ref{eq:4x4}) and (\ref{eq:4x4current}) into the
+QRSJ model, and numerically obtains the I-V curve of the junction
+as demonstrated in Fig. \ref{fig:parityflip}. Clearly, the hysteresis
+behavior is not altered by the parity flipping from the external quantum
+level.
+
+\begin{figure}[h]
+\centering{}\includegraphics[clip,width=0.4\columnwidth]{qp.pdf} \caption{Numerical results for the I-V curve with the decoherence time (a)
+$\tau_{2}=1000\hbar/E_{{\rm M}}$, (b) $\tau_{2}=10\hbar/E_{{\rm M}}$,
+(c) $\tau_{3}=0.1\hbar/E_{{\rm M}}$, and (d) $\tau_{2}=1000\hbar/E_{{\rm M}}$
+and $\tau_{3}=0.1\hbar/E_{{\rm M}}$. Other parameters are taken the
+same as in Fig. 2c in the main text.}
+\label{fig:qp}
+\end{figure}
+
+\section{Quasiparticle poisoning}
+
+In the topological superconductors, the quasiparticle poisoning is
+an important obstacle for many signatures of MZMs. The key point which
+differentiates the quasiparticle poisoning from a simple external
+quantum level from impurity or quantum dot is that it comes from the
+thermal equilibrium fermionic environment which brings decoherence
+into the quantum TLS defined by MZMs. This decoherence is fundamental
+from the quantum mechanical point of view, and cannot be simply equivalenced
+to an enlarged Hilbert space. Then it is a natural question whether
+the decoherence from the quasiparticle poisoning will destroy the
+Landau-Zener effect induced hysteresis. We analyze this problem by
+considering the density matrix $\rho(t)=\rho_{11}(t)|0\rangle\langle0|+\rho_{12}(t)|0\rangle\langle1|+\rho_{21}(t)|1\rangle\langle0|+\rho_{22}(t)|1\rangle\langle1|$
+for the TLS where the decoherence can be naturally included using
+the Lindblad form. The dynamics of the TLS is then described by a
+master equation\cite{wangpra},
+\begin{equation}
+\frac{d\rho}{dt}=-\frac{i}{\hbar}[H,\rho]+\sum_{i}\frac{1}{\tau_{i}}L_{i},
+\end{equation}
+where $L_{i}$ are all possible Lindblad forms which describe the
+decoherence and $\tau_{i}$ is the corresponding decoherence time.
+For a general TLS, there are only three possible Lindblad forms $L_{1}=|\psi_{{\rm e}}\rangle\langle\psi_{{\rm g}}|$,
+$L_{2}=|\psi_{{\rm g}}\rangle\langle\psi_{{\rm e}}|$, and $L_{3}=|\psi_{{\rm e}}\rangle\langle\psi_{{\rm e}}|-|\psi_{{\rm g}}\rangle\langle\psi_{{\rm g}}|$,
+where $|\psi_{{\rm e}}\rangle$ and $|\psi_{{\rm g}}\rangle$ are
+the two instantaneous eigenstates of the TLS. When considering the
+decoherence from the quasiparticle poisoning, only the relaxation
+processes described by $L_{2}$ and the dephasing processes described
+by $L_{3}$ are relevant in the low temperature limit.
+
+Let us first consider the relaxation processes given by the Lindblad
+$L_{2}$, which involves the coupling between the MZMs and the quasiparticle
+states above the superconducting gap. The decoherence time for this
+processes is an exponential function of the superconducting gap\cite{lossprb},
+\begin{equation}
+\frac{1}{\tau_{2}}=\lambda Te^{-\Delta/T},
+\end{equation}
+where $\lambda_{0}$ is a dimensionless factor estimated around $0.01$
+for quasiparticle poisoning processes in nanowire systems. When the
+temperature is far below the superconducting gap $T\ll\Delta$, the
+relaxation time is exponentially protected by the superconducting
+gap and would be quite long compared with all other time scales in
+the system. We present the results of the I-V curve with two different
+relaxation times of in Figs. \ref{fig:qp}a and \ref{fig:qp}b. We
+see that the relaxation reduces the hysteresis, but does not change
+the qualitative feature of reasonably long relaxation time.
+
+We then consider the decoherence from the dephasing given by the Lindblad
+$L_{3}$. Different from the relaxation, the dephasing should have
+a relatively short dephasing time\cite{lossprb} with $\tau_{3}\ll\tau_{2}$.
+However, looking at the form of $L_{3}$ we see that the dephasing
+only introduce a decoherence in the relative phase of the two eigenstates,
+leaving the relative amplitude unchanged. Since only the amplitude
+of the wave function enters the RSJ equation in the QRSJ model, we
+would expect that the dephasing has little influence on the hysteresis.
+We present the I-V curve for a very short dephasing time in Fig. \ref{fig:qp}c,
+and find that it indeed has no influence on the hysteresis behavior.
+Finally, we show the result with a combination of the relaxation and
+dephasing in Fig. \ref{fig:qp}d, and find that the hysteresis is
+robust to the decoherence from the quasiparticle poisoning.
+
+\begin{figure}[htb]
+\centering{}\includegraphics[clip,width=0.5\columnwidth]{underdamp.pdf}
+\caption{(Color online) Numerical results of the I-V curves for the underdamped
+junctions with (a) $I_{{\rm c2}}=0$ and (b) $I_{{\rm c2}}=2I_{{\rm c1}}$.
+The capacitance is taken as $C_{0}=0.1$. Other parameters are the
+same as the Fig. 2 in the main text.}
+\label{fig:underdamp}
+\end{figure}
+
+
+\section{underdamped junction}
+The overdamped conventional junctions show no hysteresis, making the
+Landau-Zener effect induced hysteresis a novel phenomenon. Even in
+the underdamped junctions where hysteresis is already expected from
+the shunted capacitance, the Landau-Zener induced part still contribute
+a significant feature which might be useful for experimental detection.
+Here, we demonstrate a comparison between the I-V curves of conventional
+and topological junctions in the underdamped regime, where the capacitance
+is included and the RSJ equation is rewritten as the RCSJ equation.
+We show the numerical results in Fig. \ref{fig:underdamp}. There
+is a hysteresis in the topological trivial junction as expected from
+the standard theory, however, the difference between the switching
+and retrapping current is largely enhanced by the Landau-Zener induced
+part. Therefore, it is still a useful signal for detecting the MZMs
+in the potential topological junctions.
+
+\begin{figure}[h]
+\centering{}\includegraphics[clip,width=0.5\columnwidth]{exp.pdf}
+\caption{(Color online) Numerical results of the I-V curves using the experimental parameters with $R=44\Omega$, $C=34$aF. Other parameters are $\tau_{2}=10^5\hbar/E_{{\rm M}}$, $I_{\rm c1}=2\mu$A, (a) $I_{\rm c2}=2.3\mu$A and (b) $I_{\rm c2}=0$. }
+\label{fig:exp}
+\end{figure}
+
+\section{experiment comparison }
+\blue{Finally, we make direct comparison between the numerical results from the model and the experimental results reported in the quantum spin Hall insulator Josephson junction. In the experiments, the junction has a resistance of $R \approx 44\Omega$ and a small capacitance of $C \approx 34 aF$, which combine together give a Stewart-McCumber parameter of $\beta_c \approx 0.001$ making an overdamped junction. However, hysteresis behavior is found in the I-V curve, which is unexpected from the standard RCSJ theory. One possibility for the hysteresis is the trivial self-heating effecting which states that the Joul heating from the current make change the effect local energy gap and therefore change the critical current. Here we demonstrate that our quantum QCSJ model can give a quantitative explanation for the experimental results.}
+
+\blue{We use the QRCSJ model to simulate the junction, where the small capacitance and the decoherence from the quasiparticles are included for realistic consideration. We numerically integrate the equations (S25) and (3) in the main text, where in accordance with the experiments we take the junction parameters as $E_{\rm M}=9.47$m$e$V, $R = 0.0214*\hbar/2e^2 = 44 \Omega $, $C = 0.1*E_{\rm M}/2e^2 = 34{\rm aF}$, $I_{\rm c1} = 0.87*eE_{\rm M}/\hbar= 2{\rm \mu A}$, $I_{\rm c2}= eE_{\rm M}/\hbar =2.3{\rm \mu A}$, and $\tau_{2}=10^5*\hbar/E_{{\rm M}}=6.96{\rm ns}$. The I-V curve is demonstrated in Fig. \ref{fig:exp}, which qualitatively reproduces the observed I-V in the experiment. Based on these quantitative agreement between theory and experiments, we argue that the quantum dynamics of the Majorana two-level system is the origin of the "unexpected" hysteretic I-V curves reported in quantum spin-Hall Josephson junctions.}
+
+
+
+
+\begin{thebibliography}{1}
+
+\bibitem{kitaevaip} A. Kitaev, AIP Conference Proceedings \textbf{1134}, 22 (2009).
+
+\bibitem{beenakkerarcp} C. W. J. Beenakker, Annu. Rev. Con. Mat. Phys. \textbf{4}, 113 (2013).
+
+\bibitem{marcus16} S. M. Albrecht, A. P. Higginbotham, M. Madsen, F. Kuemmeth, T. S. Jespersen, J. NygÃ¥rd, P. Krogstrup, and C. M.Marcus, Nature 531, 206 (2016).
+
+\bibitem{wangpra} W. C. Huang, Q. F. Liang, D. X. Yao and Z. Wang,Phys. Rev A \textbf{92}, 012308 (2015).
+
+\bibitem{lossprb} D. Rainis and D. Loss, Phys. Rev. B \textbf{85}, 174533 (2012); M. J. Schmidt, D. Rainis, and D. Loss, Phys. Rev. B \textbf{86}, 085414 (2012).
+
+\bibitem{molenkamp13} J. B. Oostinga, L. Maier, P. Sch{\"{u}}ffelgen, D. Knott, C. Ames, C. Br{\"{u}}ne, G. Tkachov, H. Buhmann, and L. W. Molenkamp, Phys. Rev. X \textbf{3}, 021007 (2013).
+
+\end{thebibliography}
+
+\end{document}

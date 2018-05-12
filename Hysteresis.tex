@@ -1,0 +1,417 @@
+ \documentclass[aps,prl,twocolumn,showpacs,showpacs,10pt,superscriptaddress]{revtex4-1}
+
+%\linespread{1.5}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{bbm}
+\usepackage{subfigure}
+\usepackage{xcolor}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{ulem}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+\newcommand{\orange}[1]{\textcolor{orange}{#1}}
+
+
+\newlength{\seplinewidth}
+\newlength{\seplinesep}
+\setlength{\seplinewidth}{1mm}
+\setlength{\seplinesep}{2mm}
+\colorlet{sepline}{orange}
+\newcommand*{\sepline}{%
+  \par
+  \vspace{\dimexpr\seplinesep+.5\parskip}%
+  \cleaders\vbox{%
+    \begingroup % because of color
+      \color{sepline}%
+      \hrule width\linewidth height\seplinewidth
+    \endgroup
+  }\vskip\seplinewidth
+  \vspace{\dimexpr\seplinesep-.5\parskip}%
+}
+
+
+
+
+
+
+
+
+\begin{document}
+
+\title{Landau-Zener Effect Induced Hysteresis in Topological Josephson Junctions}
+
+
+\author{Jia-Jin Feng}
+\altaffiliation{These authors contributed equally to this work.}
+\affiliation{School of Physics, Sun Yat-sen University, Guangzhou 510275, China}
+
+\author{Zhao Huang}
+\altaffiliation{These authors contributed equally to this work.}
+\affiliation{Texas Center for Superconductivity, University of Houston, Houston, Texas 77204, USA}
+
+\author{Zhi Wang}
+\email{wangzh356@mail.sysu.edu.cn}
+\affiliation{School of Physics, Sun Yat-sen University, Guangzhou 510275, China}
+\affiliation{Department of Physics, The University of Texas at Austin, Austin, Texas 78712, USA}
+
+\author{Qian Niu}
+\affiliation{Department of Physics, The University of Texas at Austin, Austin, Texas 78712, USA}
+
+
+\begin{abstract}
+We reveal that topological Josephson junctions provide a natural platform for the interplay between the Josephson effect and Landau-Zener effect through a two-level system formed by coupled Majorana modes. We build a quantum resistively shunted junction model by including the quantum two levels into the standard resistively shunted junction model. We obtain hysteresis in the current-Voltage characteristics which exists in the overdamped regime while the hysteresis is not available when the Landau-Zener effect is absent. We also demonstrate a mapping from the quantum dynamics to a purely classical nonlinear dynamics in a restricted three-dimensional phase space, where the hysteresis can be understood as coming from the different static and kinetic dry friction. Further investigations in a corresponding topological superconducting quantum interference device reveal interference patterns with periods $h/e$ and $h/2e$ for the switching and retrapping current respectively.
+\end{abstract}
+\date{\today}
+\pacs{74.50.+r, 03.65.Sq, 85.25.Dq, 74.78.Na}
+\maketitle
+
+%74.50.+r (Tunneling phenomena; Josephson effects),
+%03.65.-w (Quantum mechainics),
+%03.67.-a (Quantum information),
+%74.90.+n (Other topics in superconductivity),
+%74.81.Fa (Josephson junction arrays and wire networks),
+%76.63.Nm (Quantum wires),
+%74.20.Mn (Nonconventional mechanisms),
+%85.25.Cp (Josephson devices), 85.25.Dq (SQUIDs)}
+
+
+
+
+{\it Introduction.---}
+The topologically protected degeneracy related to nonlocal nature of Majorana zero modes is among the core features of topological superconductors \cite{kitaev01,kitaevaip,zhangrmp}. This degeneracy is the foundation of fascinating topological qubits \cite{fu08,sato09,Tanaka09,sauprl10,alicea12,beenakker13,franzrmp,aliceaprx,aguadoreview} and also related to supersymmetry in the 0+1 dimension \cite{Qi09,Hsieh16,Huang17}. The situation is interesting as well when the degeneracy is split by couplings between Majorana zero modes \cite{beenakker08, Cheng09, Muzushima10,tewarijpcm,marcus16}. In particular for the one-dimensional case \cite{fuprb09,Lutchyn10,oregprl10,Mourik12,Deng12}, the split energy levels form a typical two-level system since other excitation levels have much higher energy \cite{alicea12,Platero12,aguado11}.
+
+
+
+The two-level systems with their energy difference in control have proved extraordinarily fertile for interesting quantum phenomena \cite{AllenBook,Chuang05,Morsch06,noripr}. \blue{One fundamental quantum phenomenon is the Landau-Zener effect, where the non-adiabatic transition between the energy levels happens at the passage through the avoided energy crossing. This so-called St\"{u}ckelberg interference has been proven to be crucial for understanding the dynamics of many physical systems, such as atomic physics, nuclear systems, ultra-cold systems, low dimensional semiconducting systems, and superconducting systems. The St\"{u}ckelberg interference is also demonstrated to be a potential tool for high-speed quantum control in the devices of double quantum dots, superconducting qubits and graphene. To exploit the power of LZS, it is essential to understand its interplay with other physical phenomena in the targeted system. }
+
+
+\begin{figure}[b]
+\begin{center}
+\includegraphics[clip = false, width = 0.8 \columnwidth]{setup.pdf}
+\caption{(a) Schematic of a topological Josephson junction driven by an injected current $I$. The single-electron tunneling through the Majorana zero modes and the Cooper-pair tunneling induce Josephson couplings quantified by energy scales of $E_{\rm M}$ and $E_J$ respectively. The junction has a resistance $R$ and a small capacitance $C$. (b) Energies of the two-level system defined by the two Majorana zero modes touching the junction, where the Landau-Zener transition happens at the avoided energy crossing with $P$ the transition possibility. (c) Schematic of equivalent electric circuit for topological Josephson junction.}
+\label{fig:setup}
+\end{center}
+\end{figure}
+
+
+\blue{The topological Josephson junction contains an intrinsic two-level system built by Majorana zero modes, therefore hosts a natural platform for the interplay between the Landau-Zener effect and Josephson effect. Josephson effect relates the superconducting phase difference $\theta$ and the supercurrent and voltage across the junction.  }
+By coupling two Majorana zero modes with a Josephson junction as in Fig. \ref{fig:setup}a, two levels with energies $E\propto\pm\cos\theta/2$ are obtained, \blue{and the plus/minus signs correspond to states with opposite fermion number parity respectively.} Either level can coherently transport one electron through the junction, leading to the fractional Josephson effect $I \propto \pm \sin \theta/2$ \cite{fuprb09,Lutchyn10,oregprl10}. In realistic systems where the two levels are inevitably coupled, the two-level system has avoided level crossings at $\theta = (2n+1)\pi$ as in Fig. \ref{fig:setup}b. Energy spectra with such avoided crossings are ideal for studying Landau-Zener transitions. Since Landau-Zener effect has proved its impact on qualitatively changing the dynamics in various systems \cite{Chen11,Liu13,ludwig,higuchi,Law16,wubiao}, novel phenomena stemming from this interplay are expected on the topological junctions.
+
+
+
+\blue{In this letter, we establish a quantum resistively and capacitively shunted junction model which is applicable to analyze the dynamical and transport properties of the topological Josephson junction. This model combines the quantum Shr\"{o}dinger equation for the two-level system and the classical Newtonian equation for the superconducting phase difference, therefore constitute the simplest quantum-classical coupled problem. We analyze the dynamical time scale and the fixed points of the model, and demonstrates quantum oscillation due to St\"{u}ckelberg interference, and the damping of the oscillation amplitude due to the quantum-classical coupling. We find that the Landau-Zener effect qualitatively changes the classical dynamics of the superconducting phase difference, and induce a hysteresis in the current-voltage characteristics.}
+In particular, this hysteresis exists even in the overdamped regime, in contrast to its absence in conventional Josephson junctions without Majorana zero modes. We further study the topological SQUID and reveal interference patterns with periods $h/e$ and $h/2e$ for the higher and lower critical currents of the hysteretic current-voltage curves.
+
+
+
+{\it \blue{The quantum resistively and capacitively shunted junction model.}---}
+\blue{The topological Josephson junction sketched in Fig. \ref{fig:setup}a consists of a tunneling barrier between two topological superconductors\cite{marcus16,kouwenhoven15,yazdani14}. The effective model was proposed by Kitaev which involves two Majorana zero modes $\gamma_{\rm L}$ and $\gamma_{\rm R}$ \cite{kitaev01}.} Their coupling has the form \cite{fuprb09}
+\begin{eqnarray}\label{eq:MJE}
+\mathcal{H}_{\rm M} = -i E_{\rm M} \gamma_{\rm L}\gamma_{\rm R}\cos({\theta}/{2})
+\end{eqnarray}
+\blue{with $E_{\rm M}$ the maximum coupling energy between Majorana zero modes.} By defining a Dirac fermion $f = \gamma_{\rm L} + i \gamma_{\rm R}$, the Hamiltonian describes a typical two-level system where the empty state $|0\rangle$ and occupied state $|1\rangle$ are the two eigenstates. The corresponding energy spectra are $E_{\pm} = \pm E_{\rm M} \cos({\theta}/{2})$ which cross at $\theta = (2n+1)\pi$ due to $E_{+}(\theta) = E_{-}(\theta + 2\pi)$. In realistic materials with finite size, the inevitable overlapping between edge Majorana modes lead to hybridization of the two states, which breaks the local parity conservation and produces avoided energy crossings as shown in Fig. \ref{fig:setup}b. By writing the \blue{wave function} as $|\psi \rangle = \psi_0  |0\rangle +  \psi_1  |1\rangle$, the dynamics of this two-level system is determined by the Schr\"{o}dinger equation
+\begin{eqnarray}\label{eq:SE}
+i \hbar \frac{d}{dt} \left(\begin{array}{cc}
+\psi_0  \\
+\psi_1
+\end{array}\right) = \left(\begin{array}{cc}
+E_{\rm M}\cos{\frac{\theta}{2}} & \delta\\
+\delta & -E_{\rm M}\cos{\frac{\theta}{2}}
+\end{array}\right) \left(\begin{array}{cc}
+\psi_0  \\
+\psi_1
+\end{array}\right),
+\end{eqnarray}
+with $\delta$ the effective coupling between two \blue{levels} which could be derived from realistic models \cite{supplement}. 
+
+\blue{If the junction is biased with fixed voltage, $\theta$ is linearly increasing according to the ac Josephson relation $\dot \theta = 2eV /\hbar$. LZ transitions happen at avoided energy crossing and the LZS interference appears. This results in a quantum rotation of the TLS wave function and could be used as a method to control the Majorana parity state.}
+
+\blue{When the junction is current biased, the motion of $\theta$ can be generally described by the RCSJ model \cite{tinkhambook}, where the total injected current $I$ is divided by the resistive, capacitive and Josephson channels as $I= C {dV(t)}/{dt} +{V(t)}/{ R } + I_{\rm J}(t)$as shown schematically in Fig. \ref{fig:setup}c. For realistic topological junctions $I_{\rm J}$ has two parts\cite{supplement}: the conventional channel with a simple sine function $I_1(t) = I_{\rm c1}\sin{\theta(t)}$ and the parity dependent Majorana channel $I_2(t)  =  I_{\rm c2}\sin{\frac{\theta(t)}{2}}\langle \psi| i\gamma_2\gamma_3 |\psi\rangle$. By invoking the ac Josephson relation and consider the overdamped junction regime where the capacitance is negligibly small, we obtain the equation explicitly as
+\begin{equation}\label{eq:RSJ}
+\frac{d\theta}{dt} = \frac{2eR}{\hbar} \left[I - I_{\rm c1}\sin{\theta} - I_{\rm c2}\left(|\psi_1|^2 - |\psi_0|^2\right)  \sin{\frac{\theta}{2}}\right],
+\end{equation}
+where the quantum average over Majorana operators are expressed with TLS wave functions.}
+
+\blue{The coupled equations (\ref{eq:SE}) and (\ref{eq:RSJ}) constitutes the quantum resistively shunted junction model. It can be understood within the widely used tilted washboard picture\cite{tinkhambook}, where $\theta$ is viewed as the coordinate of a classical particle and the equation (\ref{eq:RSJ}) is analogous to the force balance equation for the particle in an effective potential
+\begin{equation}
+U(\theta)\!=\!-E_{\rm M} \left(|\psi_1|^2 - |\psi_0|^2\right)  \cos{\frac{\theta}{2}}\!-\!E_{\rm J}\cos{\theta}\!-\!(\hbar I/2e)\theta,
+\end{equation}
+and under a viscous force $F = - \dot \theta/ {4e^2 R_0}$. The distinguished feature is the presence of the first term in the potential, which has the form of a Zeeman potential. Therefore, the full model corresponds to the dynamics of a spin-full \blue{semi-classical} particle in a tilted washboard potential, where the parity serves as the pseudo-spin. Accordingly, there are two different washboard potentials for the pseudo-spin up and down respectively, as shown in \red{Fig. 2a}. The motion of the particle in real space to the classical dynamic of superconducting phase difference, while the rotation of the pseudo-spin corresponds to the quantum dynamics of the TLS.}
+
+
+\blue{This model is the simplest model where the classical degree of freedom couples with the quantum degree of freedom, because the TLS is the simplest quantum system while the motion of a small ball in one dimension is the simplest classical problem. In this point of view the QRSJ model provides a window for understanding the classical-quantum coupling.}
+
+\blue{In this model, the injected current $I$ is the control parameter which can be tuned continuously, while all other parameters are fixed by the junction structures. }
+When the injected current is small, the washboard is nearly horizontal. The particle stays at a potential minimum with a fixed pseudo-spin. The voltage is zero and the two-level system stays at $|1\rangle$ with certainty ($|\psi_1|^2=1$) \blue{\red{as shown in Fig. 2b}. Interesting dynamics happens when the injected current is large, where the washboard is strongly tilted and the particle is forced to drop down. The velocity of the particle gives finite voltage, and also drives Landau-Zener transitions. We show the wave function of TLS in Fig. 2c and find two characteristic features.}
+
+\blue{First, we see an obvious oscillation between the two eigenstates.} This is the \blue{constructive} St\"{u}ckelberg interference between multiple Landau-Zener transitions\cite{LZ,noripr}. \blue{This Landau-Zener-St\"{u}ckelberg interference is similar to the one obtained with fix voltage driving, where the  oscillating frequency is given by $\hbar \omega_s \approx \delta J_{0}({4 E_{\rm m}}/{ \omega\hbar})$ with $J_0$ the Bessel function\cite{supplement}. Looking at longer time evolution, the oscillation amplitude is gradually decreasing.} \red{This is due to the classical resistance couples to this quantum mechanical system as a damping factor \cite{tinkhambook}. This is a unique feature of the classical-quantum coupled system.
+The finial stable state is a nearly equal probability of the two levels since they are symmetric with the phase translation.}
+
+\blue{The quantum oscillation of the TLS systems is a dynamical process. It should have no-trivial feedback to the dynamics of the superconducting phase evolution, and demonstrate its influence in the dynamical transport properties of the junction, such as the Josephson radiation, the Shapiro steps, and the photon assisted tunneling steps. The damping of the oscillation and the destiny of a final state with nearly equal probability of the two levels, on the other hand, is a stable process and should influence the static current-voltage characteristics.
+}
+
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[clip = true, width = 1 \columnwidth]{LZ.pdf}
+\caption{Typical trajectories of the particle in the phase space for the injected current of (a) $I/I_{c1} = 0.5$ below the retrapping current, (b) $I/I_{c1} = 2.2 $ between the retrapping current and the switching current, and (c) $I/I_{c1} = 4$ above the switching current. Other parameters are taken the same as in Fig.~\ref{fig:qrcsj}. In panel (b), the shape depends on the initial condition: large $s$ or small $s$.}
+\label{fig:classical}
+\end{center}
+\end{figure}
+
+
+{\it Mapping to classical nonlinear dynamics.---}
+\blue{To better understand the quantum resistively shunted junction model, we map it to a purely classical model of nonlinear dynamics.} The trick is to cast the two-level system into a classical Hamiltonian, which has been shown to be useful for understanding the nonlinear Landau-Zener problem \cite{Liu02,Liu03}. To do so, we note that despite the wave function of the two-level system $(\psi_0,\psi_1)$ seemingly has four variables, they are subjected to two restrictions from the quantum mechanics: the wave function must be normalized and the total phase of the wave function is decoupled. Then we can define two canonical variables $s = |\psi_1|^2 - |\psi_0|^2$ and $\phi = {\rm arg}\psi_1 - {\rm arg}\psi_0$, which are able to completely capture the physics of the two-level system. With this technique, we can cast the model to a purely classical model by defining a generalized potential function,
+\begin{equation}
+U (s,\phi,\theta)= -s E_{\rm M}  \cos \frac{\theta}{2} + \delta \sqrt{1-s^2} \cos \phi  -E_{\rm J} \cos \theta - \frac{\hbar}{2e} I \theta.
+\end{equation}
+Three equations can be derived from this generalized potential,
+\begin{subequations}\label{eq:classical}
+\begin{align}
+&\frac{d\theta}{dt} = - R \frac {\partial U}{\partial \theta}  =  \frac{2eR}{\hbar} \left[I - I_{\rm c1}\sin{\theta} - s I_{\rm c2}  \sin{\frac{\theta}{2}}\right] ,
+\\
+&\frac{ds}{dt} = \frac{1}{\hbar} \frac {\partial U}{\partial \phi} = -\frac{\delta}{\hbar} \sqrt{1-s^2} \sin \phi ,
+\\
+& \frac{d\phi}{dt} = - \frac{1}{\hbar} \frac{\partial U}{ \partial s} =  \frac{E_{\rm M}}{\hbar}\cos \frac{\theta}{2} + \frac{s \delta }{\hbar \sqrt{1-s^2}}  \cos \phi.
+\end{align}
+\end{subequations}
+Obviously the Eq. (\ref{eq:classical})a is identical to Eq. (\ref{eq:RSJ}), while Eqs. (\ref{eq:classical})b and (\ref{eq:classical})c are equivalent to Eq. (\ref{eq:SE}) which can be verified through some simple algebra \cite{supplement}. Thus we successfully transform the problem for a topological junction to the motion of a classical particle in a three dimensional space.
+
+\blue{After this mapping, the typical time scales of the system becomes clear, since the three equations give the velocities. The first typical time scale is $\tau_\theta \approx \hbar/2eRI$, which corresponds to the oscillation of the superconducting phase. The second is $\tau_s \approx \hbar/\delta$ which corresponds to the amplitude oscillation of the wave function for the TLS. We notice that this time scale resembles previous result for the large voltage driving where the Bessel function equals unity. The third time scale is $\tau_\phi \approx \hbar/E_{\rm m}$, which corresponds to the oscillation of the phase for TLS wave function. In our present notation, this third time is used as the unit. With these three basic time scale, we can construct other time scales through dimensional analysis. It turns out that the damping for oscillation of the TLS state is characterized by a damping time of $\tau_d \approx \tau_s \tau_\phi / \tau_\theta \approx 2 \hbar eRI /E_{\rm m} \delta$. For a realistic topological junction, these four time scales are distinct by orders with $\tau_\theta \ll \tau_\phi \ll \tau_s \ll \tau_{\rm d}$. This gives much convenience for our analysis. }
+
+
+\blue{
+We can also analyze the dynamical fix point of the classical model with a numerical approach. We calculate the trajectories of the particle with different control parameters and initial conditions, and find them falls into three categories as shown in Fig. \ref{fig:classical}. For the small current of $I< I_{\rm re}$, the particle has closed orbit for all initial conditions s seen in Fig. \ref{fig:classical}a. For intermediate parameters of $I_{\rm re}<I<I_{\rm sw}$, there are two different types of trajectories, depending on the initial conditions. For a large initial it is a closed orbit while the trajectory falls down to $s \approx 0$ for a small initial value. For large parameters of $I> I_{\rm sw}$, all trajectories are falling to $s \approx 0$.}
+
+\blue{From these results we determined that the systems has a fixed point at $s=0$. The system can either orbit around this fixed point, or falls down to it. This fixed point is related to the damping of the TLS wave function.
+The intermediate regime of  $I_{\rm re} <I<I_{\rm sw}$ is most interesting, since the trajectory depends on the initial condition. This history dependence is in general related to the hysteretic behaviors\red{[need citation]}.}
+
+
+
+
+
+
+{\it Landau-Zener Effect Induced Hysteresis.---}
+Now we study the current-voltage characteristics of the topological Josephson junction based on the quantum resistively shunted junction model. We numerically simulate the average voltage upon adiabatic current injection, which gradually increases to a large value and then decreases back to zero.
+As a benchmark, we first show the current-voltage curve for a trivial junction with $I_{\rm c2} = 0$ in Fig. \ref{fig:qrcsj}a, which is the well known result of $V= R \sqrt{ I^2 - I^2_{\rm c1}}$ around the critical current \cite{tinkhambook}. We then consider an additional $4\pi$-period Josephson current $I_2=I_{\rm c2}\sin \frac{\theta}{2}$ which corresponds to the case of local parity conservation with $\delta = 0$, where Landau-Zener effect cannot take place. We solve the Eq.~(\ref{eq:RSJ}) with $|\psi_0|^2=1$ or $|\psi_1|^2=1$, and obtain the current-voltage curve as shown in Fig.~\ref{fig:qrcsj}b. Clearly the simple addition of a $4\pi$-period Josephson current modifies the shape of the current-voltage curve but demonstrates no novel phenomenon. For both cases, the voltage which is the velocity of the phase difference is fully determined by the applied current, so the quantum dynamics is history independent. 
+
+However, when $\delta$ becomes finite and the Landau-Zener transitions begin to affect the tunneling current, we find an unambiguous hysteretic current-voltage curve with two critical currents as shown in Fig. \ref{fig:qrcsj}c: a switching current $I_{\rm sw}$ where the voltage jumps from zero to a finite value, and a smaller retrapping current $I_{\rm re}$ for the finite voltage jumping back zero.
+
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[clip = true, width = 1 \columnwidth]{qrcsj.pdf}
+\caption{Current-voltage curves in absence of Landau-Zener effect for (a) $I_{\rm c2} = 0$, (b) $I_{\rm c2}/I_{\rm c1} = 2$ and $\delta=0$. (c) Current-voltage curves in presence of Landau-Zener effect with $I_{\rm c2}/I_{\rm c1} = 2$ and $\delta/E_{\rm M} = 0.02$. (d) The time evolution of the quantum state of the two-level system when changing $I$ from $I<I_{\rm sw}$ to $I>I_{\rm sw}$ with $|\psi_0|^2$ in red and $|\psi_1|^2$ in blue. The resistance is taken as $R_0 = 10$.}
+\label{fig:qrcsj}
+\end{center}
+\end{figure}
+
+\blue{The origin of this hysteresis is clear from our previous analysis of the QRSJ model. Begin from a small injected current, the superconducting phase difference is static and the TLS stays at $|1\rangle$. Then the Josephson current from Majorana channel is contributed by only one level, and the total Josephson current is $I_{\rm J}=I_{\rm c1}\sin{\theta}+I_{\rm c2}\sin{\frac{\theta}{2}}$. In this case, we have the critical current $I_{\rm sw} = (2I_{\rm c1}  \zeta  + I_{\rm c2}   ) \sqrt{1- \zeta^2}$, with $\zeta =\sqrt{I_{\rm c2}^2/I_{\rm c1}^2 + {1}/{2}} - I_{\rm c2}/I_{\rm c1}$. When the injected current is increased above this switching value $I>I_{\rm sw}$, voltage appears and Landau-Zener transitions happens. As we have demonstrated, the TLS will experience LZS oscillation and finally reaches the stable state of equal probability of two levels. Then both levels contribute to the Josephson current, and cancels each other since they carry opposite current $I= \pm I_{\rm c2} \sin \theta/2 $. The Josephson current becomes $I_{\rm J}=I_{\rm c1}\sin{\theta}+I_{\rm c2}(|\psi_1|^2 - |\psi_0|^2)\sin{\frac{\theta}{2}}$, and have a critical current of $I_{\rm re} = I_{\rm c1}$. Only after the injected current is decreased back below this retrapping value, the superconducting phase difference rest again the voltage disappears. We notice that the numerical results for $I_{\rm re}$ and $I_{\rm sw}$indeed agree with this critical value quite well by comparing the value of critical currents in Fig. \ref{fig:qrcsj}a and Fig. \ref{fig:qrcsj}c. }
+
+
+
+
+From the classical picture based on Eq. (\ref{eq:classical}), the hysteresis is similar to the mechanical hysteresis from the dry friction \cite{wojewoda} since Eq. (\ref{eq:classical}a) is actually a friction equation. That is, the particle has different friction forces when it is static and moving in the direction of $\theta$. This difference comes from the history dependent trajectories in the $s-\phi$ plane, as shown in Fig. \ref{fig:classical}, and then feedback to the motion in the $\theta$ direction through the last term in Eq. (\ref{eq:classical})a. This feedback effectively induces a difference in the static friction and dynamic friction for the particle; therefore the particle would begin and stop moving at different dragging forces.
+
+
+The above study provides a new hysteresis phenomenon in condensed matter physics. We note that this phenomenon involves neither local nor global parity conservation and is immune to various quasiparticle poisoning effects in realistic setups \cite{supplement,yangpeng}. Therefore, its measurement is feasible for a variety of candidate topological Josephson systems.
+
+
+
+{\it Interference Pattern of Topological SQUID.---}
+Let us now consider a topological SQUID which contains four Majorana zero modes as shown in Fig. \ref{fig:squid}a. The same as for the single topological junction, the current-voltage curve of this SQUID should also be hysteretic. \blue{Then two interference patterns can be experimentally measured,} one for the switching current and the other for the retrapping current. The switching current should contain contributions from both the conventional and Majorana channel and is thus given by
+$I_{\rm sw} (\Phi) = \max_\theta  \big[I_{\rm J1} \sin \theta + I_{\rm J2} \sin (\theta + \frac{2\pi \Phi}  {\Phi_0} )+ I_{\rm M1}  \sin \frac{\theta}{2} + I_{\rm M2} \sin (\frac{\theta}{2}+\frac{\pi \Phi}{\Phi_0})\big],$
+where $I_{{\rm J}1,{\rm J}2,{\rm M}1,{\rm M}2}$ represent the critical currents of different channels, $\Phi$ is the magnetic flux through the SQUID, and $\Phi_0 = h/2e$ is the superconducting flux quantum. Here we require the parity conservation of the coupled Majorana zero modes.
+This interference pattern, as shown explicitly by the yellow solid line in Fig.~\ref{fig:squid}b, is obviously $2\Phi_0$-periodic, which agrees with previous studies \cite{beenakker11,veldhorst12}.
+On the other hand, the currents from Majorana channels are almost canceled when considering the retrapping current, which leads to
+$I_{\rm re} (\Phi) \approx \max_\theta\big[I_{\rm J1} \sin \theta + I_{\rm J2} \sin (\theta + 2\pi \Phi / \Phi_0) ]$,
+which is $\Phi_0$-periodic as shown by the blue solid line in Fig. \ref{fig:squid}b.
+$I_{\rm sw}$ and $I_{\rm re}$ can be directly obtained by numerically studying the dynamics with the RSJ model, where the Hamiltonian for the coupled Majorana modes in the SQUID is $H= - i\gamma_1 \gamma_4 E_{\rm u} \cos {\theta}/{2}
+-  i\gamma_2 \gamma_3 E_{\rm d} \cos {(\theta+ 2\pi\Phi/\Phi_0)}/{2}
++ i\delta_{\rm l} \gamma_1 \gamma_2 + i\delta_{\rm r} \gamma_3 \gamma_4$,
+with $E_{\rm u,d}$ and $\delta_{\rm l,r}$ the corresponding coupling coefficients. The numerical results are shown in Fig. \ref{fig:squid}b, which agree well with our analytical results.
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[clip = true, width = 0.95 \columnwidth]{squid.pdf}
+\caption{(a) Schematic setup of a topological SQUID structure with four Majorana zero modes. (b) The analytical interference pattern for the switching current (blue solid line) and the retrapping current (orange solid line), and the numerically results for the interference patterns of switching current (blue circle) and retrapping current (orange diamond). Parameters are taken the same as in Fig. \ref{fig:qrcsj}.}
+\label{fig:squid}
+\end{center}
+\end{figure}
+
+From both the analytical and numerical results, in a topological SQUID we can obtain coexistence of $h/e$ and $h/2e$-periodic interference patterns, which as far as we know is never seen in any SQUID before.
+
+{\it Discussions and Conclusion.---}
+ Experimental verification of our theoretical proposal is optimistic since
+measuring the current-voltage curve is a routine experiment in Josephson junctions. Recently, unexpected hysteresis behavior has already been reported in a number of overdamped topological insulator junctions \cite{molenkamp13,molenkamp16}. We also notice that a recent experiment observed $h/e$-periodicity in a quantum spin Hall insulator SQUID, where hysteresis is also observed in the same experiment \cite{kouwenhoven15}. Our theory shows a path to examine the relevance of these experimental results to the existence of Majorana zero modes.
+
+In above, we have mainly studied overdamped junctions which have negligible capacitance. For underdamped junctions which have non-negligible capacitance, the hysteresis is also available in the trivial topological regime \cite{tinkhambook}. However, the difference between the switching and retrapping current should be less than the difference in topological nontrivial regime by considering the contribution of currents from the Majorana channels \cite{supplement}.
+
+
+In summary, we propose that the Landau-Zener effect of the two-level system in an topological Josephson junction can lead to hysteresis in the current-voltage characteristics, which exists even for overdamped junctions. We also demonstrate coexistence of a $h/e$-periodic interference pattern for the switching current and a $h/2e$-periodic retrapping current in a topological SQUID. We map the quantum mechanical dynamics in topological Josephson junctions to a classical nonlinear dynamics, which introduces a new way to understand and analyze the dynamics. This mapping enables the study of topological Josephson effect with the tools in classical mechanics, and also suggests possibilities to dig out more nontrivial phenomena which have counterparts in nonlinear physics as future works.
+
+\acknowledgments
+{\it Acknowledgments.---}
+The authors are grateful for Pavan Hosur, Stefan Ludwig and Hongqi Xu for helpful discussions. This work was supported by the National Natural Science Foundation of China under Grants No. 11774435 and No. 61471401, and China Scholarship Council under Grants No. 201706385057. Zhao Huang is supported by Robert A. Welch Foundation under Grant No. E-1146.
+
+\begin{thebibliography}{00}
+
+\bibitem{kitaev01} A. Y. Kitaev, Phys. Usp. \textbf{44}, 131 (2001).
+
+\bibitem{kitaevaip}	A. Kitaev, AIP Conference Proceedings \textbf{1134}, 22 (2009).
+
+\bibitem{zhangrmp} X. L. Qi and S. C. Zhang, Rev. Mod. Phys. \textbf{83}, 1057 (2011).
+
+%%%%%%%%%%%%%%
+
+\bibitem{fu08}	L. Fu and C. L. Kane, Phys. Rev. Lett. \textbf{100}, 096407 (2008).
+
+\bibitem{sato09} M. Sato, Y. Takahashi, and S. Fujimoto Phys. Rev. Lett. \textbf{103}, 020401 (2009).
+
+\bibitem{Tanaka09} Y. Tanaka, T. Yokoyama, and N. Nagaosa, Phys. Rev. Lett. \textbf{103}, 107002 (2009).
+
+\bibitem{sauprl10} J. D. Sau, R. M. Lutchyn, S. Tewari, and S. Das Sarma, Phys. Rev. Lett. \textbf{104}, 040502 (2010).
+
+\bibitem{alicea12} J. Alicea, Rep. Prog. Phys \textbf{75}, 076501 (2012).
+
+\bibitem{beenakker13} C.W.J. Beenakker, Annu. Rev. Con. Mat. Phys. \textbf{4}, 113 (2013)
+
+\bibitem{franzrmp} S. R. Elliott and M. Franz, Rev. Mod. Phys. \textbf{87}, 137 (2015).
+
+\bibitem{aliceaprx}	D. Aasen, M. Hell, R. V. Mishmash, A. Higginbotham, J. Danon, M. Leijnse, T. S. Jespersen, J. A. Folk, C. M. Marcus, K. Flensberg, and J. Alicea, Phys. Rev. X \textbf{6}, 031016 (2016).
+
+
+\bibitem{aguadoreview} R. Aguado, Riv. Nuovo Cimento \textbf{11}, 523 (2017).
+
+
+\bibitem{Qi09} Xiao-Liang Qi, Taylor L. Hughes, S. Raghu, and Shou-Cheng Zhang, Phys. Rev. Lett. \textbf{102}, 187001 (2009).
+
+\bibitem{Hsieh16} T. H. Hsieh, G. B. Hal\'asz, and T. Grover, Phys. Rev. Lett. \textbf{117}, 166802 (2016).
+
+\bibitem{Huang17} Z. Huang, S. Shimasaki, and M. Nitta Phys. Rev. B \textbf{96}, 220504(R) (2017).
+
+
+
+
+
+
+
+
+%%%%%%%%%%
+
+\bibitem{beenakker08}	J. Nilsson, A. R. Akhmerov, and C. W. J. Beenakker, Phys. Rev. Lett. \textbf{101}, 120403 (2008).
+
+\bibitem{Cheng09} Meng Cheng, Roman M. Lutchyn, Victor Galitski, and S. Das Sarma Phys. Rev. Lett. \textbf{103}, 107001 (2009).
+
+\bibitem{Muzushima10} T. Mizushima and K. Machida, Phys. Rev. A \textbf{82}, 023624 (2010).
+
+\bibitem{tewarijpcm} T. D. Stanescu and S. Tewari, J. Phys.: Condens. Matter \textbf{25}, 233201 (2013).
+
+\bibitem{marcus16} S. M. Albrecht, A. P. Higginbotham, M. Madsen, F. Kuemmeth, T. S. Jespersen, J. Nyg{\aa}rd, P. Krogstrup, and C. M. Marcus, Nature \textbf{531}, 206 (2016).
+
+\bibitem{prada17} J. Cayao, P. San-Jose, A. M. Black-Schaffer, R. Aguado, and E. Prada, Phys. Rev. B \textbf{96}, 205425 (2017).
+
+\bibitem{fuprb09} L. Fu and C. L. Kane, Phys. Rev. B \textbf{79}, 161408 (2009).
+
+\bibitem{Lutchyn10} R. M. Lutchyn, J. D. Sau, and S. Das Sarma, Phys. Rev. Lett. \textbf{105}, 077001 (2010).
+
+\bibitem{oregprl10} Y. Oreg, G. Refael, and F. von Oppen, Phys. Rev. Lett. \textbf{105},
+177002 (2010).
+
+\bibitem{Mourik12} V. Mourik, K. Zuo, S. M. Frolov, S. R. Plissard, E. P. A. M. Bakkers, and L. P. Kouwenhoven, Science \textbf{336}, 1003 (2012).
+
+\bibitem{Deng12} M. T. Deng, C. L. Yu, G. Y. Huang, M. Larsson, P. Caro, and H. Q. Xu, Nano Lett. \textbf{12}, 6414 (2012).
+
+\bibitem{Platero12} F. Dominguez, F. Hassler, G. Platero Phys. Rev. B \textbf{86}, 140503(R) (2012)
+
+\bibitem{aguado11} P. San-Jose, E. Prada, and R. Aguado, Phys. Rev. Lett. \textbf{108}, 257001 (2012).
+
+%%%%%%%%%%%%%%%%%
+\bibitem{AllenBook} L. Allen, and J. H. Eberly (1974), {\it Optical Resonance and Two-level Atoms} (Dover, 1975).
+
+\bibitem{Chuang05} L. M. K. Vandersypen and I. L. Chuang, Rev. Mod. Phys. \textbf{76}, 1037 (2005).
+
+\bibitem{Morsch06} O. Morsch and M. Oberthaler, Rev. Mod. Phys. \textbf{78}, 179 (2006).
+
+\bibitem{noripr} S. N. Shevchenko, S. Ashhab and F. Nori, Phys. Rep. \textbf{492}, 1 (2010).
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%
+
+
+\bibitem{LZ} L. Landau, Phys. Z. Sowjetunion, \textbf{2}, 46 (1932); C. Zener, Proc. R. Soc. Landon Ser. A \textbf{137} 696(1932); E. C. G. St\"ueckelberg, Helv. Phys. Acta \textbf{5}, 369 (1932).
+
+
+\bibitem{wangpra} W. C. Huang, Q. F. Liang, D. X. Yao and Z. Wang, Phys. Rev A \textbf{92}, 012308 (2015).
+
+\bibitem{wubiao} B. Wu and Q. Niu, Phys. Rev. A \textbf{61}, 023402 (2000).
+
+\bibitem{Chen11} Y. A. Chen, S. D. Huber, S. Trotzky, I. Bloch, and E. Altman, Nature Physics \textbf{7}, 61 (2011).
+
+\bibitem{Liu13} X. J. Liu, K. T. Law, T. K. Ng, and P. A. Lee, Phys. Rev. Lett. \textbf{111}, 120402 (2013).
+
+\bibitem{ludwig} F. Forster, G. Petersen, S. Manus, P. HANGGI, D. Schuh, W. Wegscheider, S. Kohler, and S. Ludwig, Phys. Rev. Lett. \textbf{112}, 116803 (2014).
+
+\bibitem{Law16} W. Y. He, S. Z. Zhang, and K. T. Law, Phys. Rev. A \textbf{94}, 013606 (2016).
+
+\bibitem{higuchi} T. Higuchi, C. Heide, K. Ullmann, H.B. Weber, and P. Hommelhoff, Nature \textbf{550}, 224 (2017).
+
+\bibitem{kouwenhoven15} V. S. Pribiag, A. J. A. Beukman, F. Qu, M. C. Cassidy, C. Charpentier, W. Wegscheider, and L. P. Kouwenhoven, Nature Nanotechnology \textbf{10}, 593 (2015).
+
+\bibitem{yazdani14} S. Nadj-Perge, I.K. Drozdov, J. Li, H. Chen, S. Jeon, J. Seo, A.H. MacDonald, B.A. Bernevig, and A. Yazdani, Science \textbf{346}, 602 (2014).
+
+%%%%%%%%%%%%%%%%%%%
+\bibitem{supplement} See Supplemental Material for derivation of the 2x2 Josephson Hamiltonian and the Josephson current, and the methods to cast a quantum two-level system into a classical system, and discussions of the external parity flipping, quasiparticle poisoning, and underdamped junction.
+%%%%%%%%%%%%%%%%%%
+
+\bibitem{tinkhambook}  M. Tinkham, {\it Introduction to Superconductivity}, (Second Edition, McGraw-Hill Book Co. 1996).
+
+\bibitem{yangpeng} Y. Peng, F. Pientka, E. Berg, Y. Oreg, and F. von Oppen, Phys. Rev. B \textbf{94}, 085409 (2016).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\bibitem{Liu02} J. Liu, L. Fu, B. Y. Ou, S. G. Chen, D. I. Choi, B. Wu, and Q. Niu, Phys. Rev. A \textbf{66}, 023404 (2002).
+
+\bibitem{Liu03} J. Liu, B. Wu, and Q. Niu, Phys. Rev. Lett. \textbf{90}, 170404 (2003).
+
+\bibitem{wojewoda} J. Wojewoda, A. Stefanski, M. Wiercigroch, and T. Kapitaniak, Phil. Trans. R. Soc. A \textbf{366}, 747 (2008).
+
+\bibitem{beenakker11} B. van Heck, F. Hassler, A. R. Akhmerov, and C. W. J. Beenakker, Phys. Rev. B \textbf{84}, 180502 (2011).
+
+\bibitem{veldhorst12} M. Veldhorst, C. G. Molenaar, C. J. M. Verwijs, H. Hilgenkamp, and A. Brinkman, Phys. Rev. B \textbf{86}, 024509 (2012).
+
+
+\bibitem{molenkamp13} J. B. Oostinga, L. Maier, P. Sch{\"{u}}ffelgen, D. Knott, C. Ames, C. Br{\"{u}}ne, G. Tkachov, H. Buhmann, and L. W. Molenkamp, Phys. Rev. X \textbf{3}, 021007 (2013).
+
+\bibitem{molenkamp16} J. Wiedenmann, R. S. Deacon, S. Hartinger, O. Herrmann, T. M. Klapwijk, L. Maier, C. Ames, C. Br\"{u}ne, C. Gould, A. Oiwa, K. Ishibashi, S. Tarucha, H. Buhmann, L. W. Molenkamp, and E. Bocquillon, Nature Communications \textbf{7}, 10303 (2016). 
+
+
+
+
+\end{thebibliography}
+
+
+
+
+
+\end{document}
